@@ -63,7 +63,7 @@ env:
   SUSFS_PATCH_FIXED: "susfs_fixed" # Fill in your patches here. If there are multiple patches, please separate them with a comma. Leave it blank if there isn't one. -> patch1,patch2
 
   REKERNEL_ENABLE: "true" # if u need Re:Kernel.
-  DROIDSPACES_ENABLE: "true" # if u need Droidspaces or LXC/Docker.
+  DROIDSPACES_ENABLE: "false" # if u need Droidspaces or LXC/Docker.
 
   HOOK_METHOD: "syscall" # Manual hook method -> syscall.
 
@@ -118,7 +118,7 @@ jobs:
         run: |
           # Only ${{ env.DEVICE_NAME }} use it.
           cd $GITHUB_WORKSPACE/device_kernel
-          sed -i 's/CONFIG_LOCALVERSION="-Paradigm"/CONFIG_LOCALVERSION="-HaoticKernel"/g' arch/arm64/configs/sdmmagpie_defconfig
+          sed -i 's/CONFIG_LOCALVERSION="-Paradigm"/CONFIG_LOCALVERSION="-OrangeSuki"/g' arch/arm64/configs/sdmmagpie_defconfig
           echo "[+] Kernel name has been updated to -OrangeSuki"
           sed -i '/CONFIG_DEBUG_KERNEL/d' arch/arm64/configs/sdmmagpie_defconfig
           sed -i '/CONFIG_KALLSYMS/d' arch/arm64/configs/sdmmagpie_defconfig

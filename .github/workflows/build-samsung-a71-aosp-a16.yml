@@ -1,4 +1,4 @@
-name: Build Samsung Galaxy A71 (Based AOSP A16)
+name: Build Samsung Galaxy A71 (OrangeSuki)
 
 on:
   workflow_call:
@@ -12,7 +12,7 @@ env:
   CUSTOM_CMDS : "CLANG_TRIPLE=aarch64-linux-gnu- CROSS_COMPILE=aarch64-linux-gnu-"
   EXTRA_CMDS : "LLVM=1 LLVM_IAS=1 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip READELF=llvm-readelf HOSTCC=clang HOSTCXX=clang++"
 
-  KERNEL_SOURCE : "https://github.com/nduykha/kernel_samsung_sm7150.git"
+  KERNEL_SOURCE : "https://github.com/pascua28/android_kernel_samsung_sm7150.git"
   KERNEL_BRANCH : "paradigm"
 
   CLANG_SOURCE : "https://github.com/nduykha/kernel_samsung_sm7150/releases/download/clang/llvm.tar.xz"
@@ -46,7 +46,7 @@ env:
   NEED_DTBO : true
   NEED_SAFE_DTBO : true
 
-  ROM_TEXT : "aosp_a16"
+  ROM_TEXT : "OrangeSuki"
 
   # Other env
   PYTHON_VERSION: "3" # Only 2(Ubuntu 22.04 and Ubuntu 20.04) or 3(Any OS Versions).
@@ -90,7 +90,7 @@ env:
 
 jobs:
   build-kernel:
-    name: Samsung Galaxy A71 (AOSP A16)
+    name: Samsung Galaxy A71 (OrangeSuki)
     runs-on: ubuntu-latest # u can changed to ubuntu 22.04, and need container set ubuntu-latest
     # container: archlinux/archlinux:latest # if u need use arch linux -> archlinux/archlinux:latest or ubuntu 20.04 -> ubuntu:focal
     env:
@@ -119,7 +119,7 @@ jobs:
           # Only ${{ env.DEVICE_NAME }} use it.
           cd $GITHUB_WORKSPACE/device_kernel
           sed -i 's/CONFIG_LOCALVERSION="-Paradigm"/CONFIG_LOCALVERSION="-HaoticKernel"/g' arch/arm64/configs/sdmmagpie_defconfig
-          echo "[+] Kernel name has been updated to -HaoticKernel"
+          echo "[+] Kernel name has been updated to -OrangeSuki"
           sed -i '/CONFIG_DEBUG_KERNEL/d' arch/arm64/configs/sdmmagpie_defconfig
           sed -i '/CONFIG_KALLSYMS/d' arch/arm64/configs/sdmmagpie_defconfig
           sed -i '/CONFIG_KALLSYMS_ALL/d' arch/arm64/configs/sdmmagpie_defconfig

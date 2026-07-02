@@ -60,15 +60,15 @@ env:
   SUSFS_FOLDER_FIXED: "a71_sm7150"
   SUSFS_PATCH_FIXED: "susfs_fixed"
 
-  REKERNEL_ENABLE: "true"
+  REKERNEL_ENABLE: "false"
   DROIDSPACES_ENABLE: "false"
 
   HOOK_METHOD: "syscall"
 
-  KERNEL_PATCH: "true"
+  KERNEL_PATCH: "false"
 
-  KPM_ENABLE: "false"
-  KPM_INLINE: "false"
+  KPM_ENABLE: "true"
+  KPM_INLINE: "true"
   KPM_KPATCH_NEXT: "false"
   KPM_PATCH_SOURCE: "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU_patch/refs/heads/main/kpm/patch_linux"
 
